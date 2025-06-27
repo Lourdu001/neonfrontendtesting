@@ -1,58 +1,13 @@
-// import React,{useState} from 'react'
-// import axios from 'axios'
-// const Displaydata = () => {
-// const [get, setget] = useState([]);
-// const getdata = () =>{
-//     const getcall =async() =>{ await axios.get('/',(req,res)=>{
-//         setget(JSON.stringify(res.disdata));
-//         console.log("data stored sucessfully");
-        
-//     });
-// }
-//     try {
-//         getcall();
-//     } catch (error) {
-//         console.log(error);
-        
-//     }
-// }
-// const [disdata, setdisdata] = useState(false);
-
-//   return (
-// <div>
-//     <button onClick={()=>getdata}>get</button>
-//     <button onClick={()=>setdisdata(!disdata)}>display</button>
-//     {disdata===false||<div>
-// {
-//     get.length===0||get.map(
-//         (item)=>
-//             <div>
-//                 <h1>{item.empid}</h1>
-//                 <h1>{item.date}</h1>
-//                 <h1>{item.name}</h1>
-//                 <h1>{item.attendance}</h1>
-//                 <h1>{item.timein}</h1>
-//                 <h1>{item.timeout}</h1>
-//             </div>
-
-//     )
-// }
-//     </div>}
-// </div>
-// )
-// }
-
-// export default Displaydata
 import React, { useState } from 'react';
 import axios from 'axios';
 
 const Displaydata = () => {
   const [get, setGet] = useState([]);
   const [disdata, setDisdata] = useState(false);
-
+const BaseUrl = 'https://neonservertesting.onrender.com';
   const getdata = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/'); // update URL as needed
+      const response = await axios.get(`${BaseUrl}/`); 
       setGet(response.data);
       console.log("Data fetched successfully:", response.data);
     } catch (error) {
